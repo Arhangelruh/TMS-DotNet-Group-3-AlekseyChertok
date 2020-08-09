@@ -16,6 +16,8 @@ namespace CoctailBot.Services
         {
             _commands = new List<ITelegramCommand>
             {
+                 new StartCommand(),
+                 new AboutCommand(),
                // что то должно быть, наши команды
             };
         }

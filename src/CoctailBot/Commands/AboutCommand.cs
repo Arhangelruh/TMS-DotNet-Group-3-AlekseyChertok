@@ -3,12 +3,12 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using CoctailBot.Interfaces;
+using CoctailBot.Resources;
 
 namespace CoctailBot.Commands
 {
-   
-        /// <inheritdoc cref="ITelegramCommand"/>
-        public class AboutCommand : ITelegramCommand
+    /// <inheritdoc cref="ITelegramCommand"/>
+    public class AboutCommand : ITelegramCommand
         {
             /// <inheritdoc/>
             public string Name { get; } = About.Link;
@@ -17,7 +17,7 @@ namespace CoctailBot.Commands
             public async Task Execute(Message message, ITelegramBotClient client)
             {
                 var chatId = message.Chat.Id;
-                await client.SendTextMessageAsync(chatId, $"\U0001F389 {About.Message} \U0001F449 {About.ShortLink} \U0001F448");
+                await client.SendTextMessageAsync(chatId, $"\U0001F389 {About.Message} \U0001F449");
             }
 
             /// <inheritdoc/>

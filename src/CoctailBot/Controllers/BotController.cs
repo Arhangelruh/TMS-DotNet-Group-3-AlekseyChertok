@@ -30,28 +30,28 @@ namespace CoctailBot.Controllers
         /// Request processing method.
         /// </summary>
         /// <param name="update">Incoming update.</param>
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Update update)
-        {
-            if (update == null)
-            {
-                return NoContent();
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> Post([FromBody] Update update)
+        //{
+        //    if (update == null)
+        //    {
+        //        return NoContent();
+        //    }
 
-            var message = update.Message;
+        //    var message = update.Message;
 
-            Console.WriteLine(string.Format(Common.Message, message.Chat.Id, message.Text));
+        //    Console.WriteLine(string.Format(Common.Message, message.Chat.Id, message.Text));
 
-            foreach (var command in _commandService.Get())
-            {
-                if (command.Contains(message))
-                {
-                    await command.Execute(message, _telegramBotClient);
-                    break;
-                }
-            }
+        //    foreach (var command in _commandService.Get())
+        //    {
+        //        if (command.Contains(message))
+        //        {
+        //            await command.Execute(message, _telegramBotClient);
+        //            break;
+        //        }
+        //    }
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
     }
 }
