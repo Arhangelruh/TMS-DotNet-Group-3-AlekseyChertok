@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZrWwTYty//SBlzZ/AA+K7vEpcFfDwyBgZX1DLh0MgNIQ63kbQQDh/Ha78HRjFqiNts3vnYCYz+wNWfgZ3AzrsQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sa.cbu000\\Documents\\TMS-DotNet-Group-3-TB\\testapp\\testapp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sa.cbu000\\.nuget\\packages\\flurl\\2.8.2\\flurl.2.8.2.nupkg.sha512",
+    "C:\\Users\\sa.cbu000\\.nuget\\packages\\flurl.http\\2.4.2\\flurl.http.2.4.2.nupkg.sha512",
+    "C:\\Users\\sa.cbu000\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\sa.cbu000\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\sa.cbu000\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\sa.cbu000\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\sa.cbu000\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

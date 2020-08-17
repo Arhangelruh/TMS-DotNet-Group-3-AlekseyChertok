@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoctailBot.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,6 +33,15 @@ namespace CoctailBot
             {
                 endpoints.MapGet("/", async context =>
                 {
+                    ApiService apiService = new ApiService();
+                    var data = apiService.GetCocktailsByIngredientAsync("Gin").GetAwaiter().GetResult(); ;
+                    foreach (var item in data)
+                    {
+                        await context.Response.WriteAsync(item.strDrink + " " + item.idDrink);
+                        
+
+                    }
+                    
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
