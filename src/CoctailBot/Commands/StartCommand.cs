@@ -10,7 +10,6 @@ namespace CoctailBot.Commands
 {
     public class StartCommand : ITelegramCommand
     {
-
         /// <inheritdoc cref="ITelegramCommand"/>
         /// <inheritdoc/>
         public string Name { get; } = Start.Link;
