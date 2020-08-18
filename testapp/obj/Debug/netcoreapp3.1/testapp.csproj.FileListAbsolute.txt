@@ -48,3 +48,5 @@ D:\TeachMeSkill\TMS-DotNet-Group-3-AlekseyChertok\testapp\obj\Debug\netcoreapp3.
 D:\TeachMeSkill\TMS-DotNet-Group-3-AlekseyChertok\testapp\obj\Debug\netcoreapp3.1\testapp.pdb
 D:\TeachMeSkill\TMS-DotNet-Group-3-AlekseyChertok\testapp\obj\Debug\netcoreapp3.1\testapp.genruntimeconfig.cache
 D:\TeachMeSkill\TMS-DotNet-Group-3-AlekseyChertok\testapp\bin\Debug\netcoreapp3.1\Flurl.dll
+D:\TeachMeSkill\TMS-DotNet-Group-3-AlekseyChertok\testapp\bin\Debug\netcoreapp3.1\Flurl.Http.dll
+D:\TeachMeSkill\TMS-DotNet-Group-3-AlekseyChertok\testapp\obj\Debug\netcoreapp3.1\testapp.csproj.CoreCompileInputs.cache
