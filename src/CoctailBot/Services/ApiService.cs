@@ -103,11 +103,7 @@ namespace CoctailBot.Services
             var coctail = response.drinks;
             return coctail;
         }
-
-        internal static Task RandomCocktail()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
 

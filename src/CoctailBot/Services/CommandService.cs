@@ -18,6 +18,7 @@ namespace CoctailBot.Services
             {
                  new StartCommand(),
                  new AboutCommand(),
+                 new RandomCocktailsCommands(),
                // что то должно быть, наши команды
             };
         }
