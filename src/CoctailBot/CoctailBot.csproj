@@ -26,6 +26,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>About.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\IDCocktails.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IDCocktails.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\listAlcoholic.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -57,6 +62,10 @@
     <EmbeddedResource Update="Resources\About.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>About.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\IDCocktails.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IDCocktails.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\listAlcoholic.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
