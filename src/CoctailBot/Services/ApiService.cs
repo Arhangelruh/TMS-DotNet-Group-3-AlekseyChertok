@@ -10,6 +10,7 @@ using Flurl.Http;
 namespace CoctailBot.Services
 
 {
+    /// <inheritdoc cref="IApiService"/>
     public class ApiService : IApiService
     {
         /// <summary>

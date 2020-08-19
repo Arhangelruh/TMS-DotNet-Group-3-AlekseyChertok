@@ -19,13 +19,13 @@ namespace CoctailBot.Commands
         public async Task Execute(Message message, ITelegramBotClient client)
         {
             IApiService workWithApi = new ApiService();
-            var chatId = message.Chat.Id;            
+            var chatId = message.Chat.Id;
             var coctails = workWithApi.listAlcoholicCocktail("").GetAwaiter().GetResult();
             await client.SendTextMessageAsync(chatId, $"\nCocktail types:");
             foreach (var coctail in coctails)
             {
                 await client.SendTextMessageAsync(chatId, $"\n{coctail.strAlcoholic}");
-             }
+            }
 
         }
 

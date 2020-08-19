@@ -1,15 +1,16 @@
-﻿using CoctailBot.Interfaces;
-using CoctailBot.Models;
-using CoctailBot.Services;
-using System;
+﻿using CoctailBot.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CoctailBot.Logics
 {
     public class GetIngridients
     {
+        /// <summary>
+        /// Get real ingridients 
+        /// </summary>
+        /// <param name="reciep">CocktailRecipe</param>
+        /// <returns>List real ingridients in coctail</returns>
         public async Task <List<string>> GetListIngridientsAsync(CocktailRecipe reciep) {
             List<string> baseingridients = new List<string>()
             {
@@ -58,15 +59,7 @@ namespace CoctailBot.Logics
                     if (ingridient!=null) {
                         outingridients.Add(ingridient + " " + measure);
                     }
-                }
-                //foreach (var ingridient in baseingridients)
-                //{
-                //    int i = 0;
-                //    if (ingridient != null)
-                //    {
-                //        outingridients.Add(ingridient);
-                //    }
-                //}
+                }             
             });
 
             return outingridients;
@@ -74,22 +67,3 @@ namespace CoctailBot.Logics
 
     }
 }
-
-//List<string> baseingridients = new List<string>()
-//            {
-//                reciep.strIngredient1 +" "+ reciep.strMeasure1,
-//                reciep.strIngredient2 + " " + reciep.strMeasure2,
-//                reciep.strIngredient3 + " " + reciep.strMeasure3,
-//                reciep.strIngredient4 + " " + reciep.strMeasure4,
-//                reciep.strIngredient5 + " " + reciep.strMeasure5,
-//                reciep.strIngredient6 + " " + reciep.strMeasure6,
-//                reciep.strIngredient7 + " " + reciep.strMeasure7,
-//                reciep.strIngredient8 + " " + reciep.strMeasure8,
-//                reciep.strIngredient9 + " " + reciep.strMeasure9,
-//                reciep.strIngredient10 + " " + reciep.strMeasure10,
-//                reciep.strIngredient11 + " " + reciep.strMeasure11,
-//                reciep.strIngredient12 + " " + reciep.strMeasure12,
-//                reciep.strIngredient13 + " " + reciep.strMeasure13,
-//                reciep.strIngredient14 + " " + reciep.strMeasure14,
-//                reciep.strIngredient15 + " " + reciep.strMeasure15
-//            };
