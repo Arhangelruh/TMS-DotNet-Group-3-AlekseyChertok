@@ -21,10 +21,11 @@ namespace CoctailBot.Commands
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;            
             var coctails = workWithApi.listAlcoholicCocktail("").GetAwaiter().GetResult();
-
+            await client.SendTextMessageAsync(chatId, $"\nCocktail types:");
             foreach (var coctail in coctails)
-
-                await client.SendTextMessageAsync(chatId, $"\nCocktail type: \n{coctail.strAlcoholic}");
+            {
+                await client.SendTextMessageAsync(chatId, $"\n{coctail.strAlcoholic}");
+             }
 
         }
 
