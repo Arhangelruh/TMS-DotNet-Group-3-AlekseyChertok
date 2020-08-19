@@ -123,4 +123,8 @@
   <data name="Message" xml:space="preserve">
     <value>Welcome</value>
   </data>
+  <data name="MessageFromAbouth" xml:space="preserve">
+    <value>Use command /about from see all command</value>
+    <comment>return all command from bot </comment>
+  </data>
 </root>

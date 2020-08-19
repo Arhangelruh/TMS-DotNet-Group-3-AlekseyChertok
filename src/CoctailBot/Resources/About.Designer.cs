@@ -70,11 +70,20 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на This is so cool bot.
+        ///   Ищет локализованную строку, похожую на Hi i helps you to find a cocktail recipe. This my commands:  .
         /// </summary>
         public static string Message {
             get {
                 return ResourceManager.GetString("Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на /random - show recipe random coctail.
+        /// </summary>
+        public static string MessageCommandRandom {
+            get {
+                return ResourceManager.GetString("MessageCommandRandom", resourceCulture);
             }
         }
     }

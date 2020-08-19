@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoctailBot.Helpers;
+using CoctailBot.Interfaces;
 using CoctailBot.Models;
 using Flurl;
 using Flurl.Http;
 namespace CoctailBot.Services
 
 {
-    public class ApiService
+    public class ApiService : IApiService
     {
         /// <summary>
         /// Поиск по ингредиенту.

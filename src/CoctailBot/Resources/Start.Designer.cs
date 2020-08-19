@@ -77,5 +77,14 @@ namespace CoctailBot.Resources {
                 return ResourceManager.GetString("Message", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Use command /about from see all command.
+        /// </summary>
+        public static string MessageFromAbouth {
+            get {
+                return ResourceManager.GetString("MessageFromAbouth", resourceCulture);
+            }
+        }
     }
 }
