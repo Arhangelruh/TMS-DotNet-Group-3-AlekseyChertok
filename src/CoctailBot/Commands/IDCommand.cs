@@ -6,6 +6,7 @@ using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
 using CoctailBot.Logics;
+using System;
 
 namespace CoctailBot.Commands
 {
@@ -22,20 +23,27 @@ namespace CoctailBot.Commands
             var chatId = message.Chat.Id;
             var data = message.Text.Replace("/id","");            
             var coctails = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
-            foreach (var coctail in coctails)
+            try
             {
-                await client.SendTextMessageAsync(chatId, $"\nCocktail ID: {coctail.idDrink}");
-                await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink}");
-                GetIngridients getIngridients = new GetIngridients();
-                string coctailIngridient = "Coctail ingridients: ";
-                var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();
-                foreach (var ingridient in ingridients)
+                foreach (var coctail in coctails.drinks)
                 {
-                    coctailIngridient += ingridient + "; ";
-                }
+                    await client.SendTextMessageAsync(chatId, $"Cocktail ID: {coctail.idDrink}");
+                    await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink}");
+                    GetIngridients getIngridients = new GetIngridients();
+                    string coctailIngridient = "Coctail ingridients: ";
+                    var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();
+                    foreach (var ingridient in ingridients)
+                    {
+                        coctailIngridient += ingridient + "; ";
+                    }
 
-                await client.SendTextMessageAsync(chatId, $"\n{coctailIngridient}");
-                await client.SendTextMessageAsync(chatId, $"\nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
+                    await client.SendTextMessageAsync(chatId, $"\n{coctailIngridient}");
+                    await client.SendTextMessageAsync(chatId, $"\nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
+                }
+            }
+            catch (NullReferenceException)
+            {
+                await client.SendTextMessageAsync(chatId, $"Cocktail id {data} not found \U0001F61E" );
             }
         }
 

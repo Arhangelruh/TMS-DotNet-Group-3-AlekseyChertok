@@ -44,13 +44,11 @@ namespace CoctailBot.Services
         /// </summary>
         /// <param name="recipeID">ID коктейля.</param>
         /// <returns></returns>
-        public async Task<IEnumerable<CocktailRecipe>> GetCocktailsByID(string recipeID)
+        public async Task <CocktailsRecipes> GetCocktailsByID(string recipeID)
         {
-            var response = await Constants.lookupFullCocktaildetailsById
+            return await Constants.lookupFullCocktaildetailsById
                 .SetQueryParams(new { i = recipeID })
-                .GetJsonAsync<CocktailsRecipes>();
-            var coctail = response.drinks;
-            return coctail;
+                .GetJsonAsync<CocktailsRecipes>();          
         }
 
         /// <summary>

@@ -28,7 +28,7 @@ namespace CoctailBot.Interfaces
         /// </summary>
         /// <param name="recipeID"></param>
         /// <returns>Coctail recipe</returns>
-        Task<IEnumerable<CocktailRecipe>> GetCocktailsByID(string recipeID);
+        Task<CocktailsRecipes> GetCocktailsByID(string recipeID);
 
         /// <summary>
         /// Request random coctail

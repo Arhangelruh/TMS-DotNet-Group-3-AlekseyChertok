@@ -13,11 +13,17 @@ namespace testapp
             var text = Console.ReadLine();
             var data = text.Replace("/id","");
             Console.WriteLine(data);
-            var recponse = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
-            foreach (var item in recponse)
-            {
-                Console.WriteLine(item.strDrink);
-            }
+            
+                var recponse = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
+            
+                foreach (var item in recponse.drinks)
+                {
+                
+                    Console.WriteLine(item.strDrink);
+               
+                   
+                }
+            
             
 
         }
