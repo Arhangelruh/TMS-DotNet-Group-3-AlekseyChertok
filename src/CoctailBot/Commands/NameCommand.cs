@@ -22,7 +22,7 @@ namespace CoctailBot.Commands
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
             var data = message.Text.Replace("/name", "");
-            var coctails = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
+            var coctails = workWithApi.GetCocktailsByRecipeAsync(data).GetAwaiter().GetResult();
             try
             {
                 foreach (var coctail in coctails.drinks)
