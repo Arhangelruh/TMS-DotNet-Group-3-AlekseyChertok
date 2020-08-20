@@ -13,17 +13,10 @@ namespace CoctailBot
     public class Program
     {
         public static void Main(string[] args)
-        {
-            ApiService apiService = new ApiService();
+        {            
             CreateHostBuilder(args).Build().Run();
            
-            var data = apiService.GetCocktailsByIngredientAsync("Gin").GetAwaiter().GetResult(); ;
-            foreach (var item in data)
-            {
-                Console.WriteLine(item.strDrink + " " + item.idDrink);
-
-            }
-            Console.ReadLine();
+            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
