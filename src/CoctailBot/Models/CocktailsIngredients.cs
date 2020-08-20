@@ -2,7 +2,7 @@
 
 namespace CoctailBot.Models
 {
-    public class CocktailsInrgedients
+    public class CocktailsIngredients
     {
         public IList<CocktailIngredient> drinks { get; set; }
     }

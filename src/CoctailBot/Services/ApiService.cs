@@ -16,13 +16,11 @@ namespace CoctailBot.Services
         /// </summary>
         /// <param name="IngredientsName">Наименование ингредиента.</param>
         /// <returns></returns>
-        public async Task<IEnumerable<CocktailIngredient>> GetCocktailsByIngredientAsync(string ingredientsName)
+        public async Task <CocktailsIngredients> GetCocktailsByIngredientAsync(string ingredientsName)
         {
-            var response = await Constants.searchByIngredient
+            return await Constants.searchByIngredient
                 .SetQueryParams(new { i = ingredientsName })
-                .GetJsonAsync<CocktailsInrgedients>();
-            var coctail = response.drinks;
-            return coctail;
+                .GetJsonAsync<CocktailsIngredients>();
         }
 
         /// <summary>

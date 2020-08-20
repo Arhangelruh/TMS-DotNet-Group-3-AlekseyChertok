@@ -14,7 +14,7 @@ namespace CoctailBot.Interfaces
         /// </summary>
         /// <param name="ingredientsName"></param>
         /// <returns>List coctails</returns>
-        Task<IEnumerable<CocktailIngredient>> GetCocktailsByIngredientAsync(string ingredientsName);
+        Task <CocktailsIngredients> GetCocktailsByIngredientAsync(string ingredientsName);
 
         /// <summary>
         /// Request coctails by name

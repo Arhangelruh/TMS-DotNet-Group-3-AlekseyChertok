@@ -22,7 +22,7 @@ namespace CoctailBot.Commands
             var chatId = message.Chat.Id;
             var data = message.Text.Split(' ');
             var coctails = workWithApi.GetCocktailsByIngredientAsync(data[1]).GetAwaiter().GetResult();
-            foreach (var coctail in coctails)
+            foreach (var coctail in coctails.drinks)
             {
                 await client.SendTextMessageAsync(chatId, $"\nCocktail ID: /id{coctail.idDrink} \nCocktail name:{coctail.strDrink}");
                 await client.SendTextMessageAsync(chatId, $"{coctail.strDrinkThumb}");
