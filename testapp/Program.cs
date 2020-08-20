@@ -10,13 +10,13 @@ namespace testapp
         {
             GetIngridients getIngridients = new GetIngridients();
             ApiService workWithApi = new ApiService();
-            var recponse = workWithApi.RandomCocktail("").GetAwaiter().GetResult();
+            var text = Console.ReadLine();
+            var data = text.Split(' ');
+            Console.WriteLine(data[1]);
+            var recponse = workWithApi.GetCocktailsByID(data[1]).GetAwaiter().GetResult();
             foreach (var item in recponse)
             {
-                var ingridients = getIngridients.GetListIngridients(item);
-                foreach (var ingridient in ingridients) {
-                    Console.WriteLine(ingridient);
-                }
+                Console.WriteLine(item.strDrink);
             }
             
 

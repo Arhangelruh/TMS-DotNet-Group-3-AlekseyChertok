@@ -20,6 +20,7 @@ namespace CoctailBot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHealthChecks();
+            services.AddScoped<IApiService, ApiService>();
             services.AddScoped<ICommandService, CommandService>();
             services.AddTelegramBotClient(_configuration);
             services.AddControllers()

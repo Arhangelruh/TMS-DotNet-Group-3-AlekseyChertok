@@ -7,7 +7,7 @@ namespace CoctailBot.Interfaces
     /// <summary>
     /// Api requests service
     /// </summary>
-    interface IApiService
+    public interface IApiService
     {
         /// <summary>
         /// Request coctails by base ingridient

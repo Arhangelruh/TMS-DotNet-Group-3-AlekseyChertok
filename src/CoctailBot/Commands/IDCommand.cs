@@ -20,13 +20,12 @@ namespace CoctailBot.Commands
         {
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
-            var data = message.Text;
-            var coctails = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
-            await client.SendTextMessageAsync(chatId, $"\nCocktail ID:");
+            var data = message.Text.Split(' ');            
+            var coctails = workWithApi.GetCocktailsByID(data[1]).GetAwaiter().GetResult();
             foreach (var coctail in coctails)
             {
+                await client.SendTextMessageAsync(chatId, $"\nCocktail ID: {coctail.idDrink}");
                 await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink}");
-
                 GetIngridients getIngridients = new GetIngridients();
                 string coctailIngridient = "Coctail ingridients: ";
                 var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();

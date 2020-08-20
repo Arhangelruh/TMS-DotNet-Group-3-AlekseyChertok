@@ -61,7 +61,7 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на \id.
+        ///   Ищет локализованную строку, похожую на /id.
         /// </summary>
         public static string Link {
             get {
