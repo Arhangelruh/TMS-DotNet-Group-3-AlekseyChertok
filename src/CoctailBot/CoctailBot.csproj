@@ -51,6 +51,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>listIngredients.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\NameCocktail.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NameCocktail.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Random.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -87,6 +92,10 @@
     <EmbeddedResource Update="Resources\listIngredients.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>listIngredients.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\NameCocktail.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NameCocktail.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Random.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
