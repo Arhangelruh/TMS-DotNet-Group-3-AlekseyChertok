@@ -11,9 +11,9 @@ namespace testapp
             GetIngridients getIngridients = new GetIngridients();
             ApiService workWithApi = new ApiService();
             var text = Console.ReadLine();
-            var data = text.Split(' ');
-            Console.WriteLine(data[1]);
-            var recponse = workWithApi.GetCocktailsByID(data[1]).GetAwaiter().GetResult();
+            var data = text.Replace("/id","");
+            Console.WriteLine(data);
+            var recponse = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
             foreach (var item in recponse)
             {
                 Console.WriteLine(item.strDrink);
