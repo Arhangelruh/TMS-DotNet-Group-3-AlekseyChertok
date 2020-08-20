@@ -24,7 +24,7 @@ namespace CoctailBot.Commands
             var coctails = workWithApi.GetCocktailsByIngredientAsync(data[1]).GetAwaiter().GetResult();
             foreach (var coctail in coctails)
             {
-                await client.SendTextMessageAsync(chatId, $"\nCocktail ID: {coctail.idDrink} \nCocktail name:{coctail.strDrink}");
+                await client.SendTextMessageAsync(chatId, $"\nCocktail ID: /id{coctail.idDrink} \nCocktail name:{coctail.strDrink}");
                 await client.SendTextMessageAsync(chatId, $"{coctail.strDrinkThumb}");
              }
         }

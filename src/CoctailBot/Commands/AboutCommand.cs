@@ -23,6 +23,7 @@ namespace CoctailBot.Commands
             await client.SendTextMessageAsync(chatId, $"{About.MessageCommandlistIngredients} \U0001F379");
             await client.SendTextMessageAsync(chatId, $"{About.MessageCommandlistAlcoholic} \U0001F379");
             await client.SendTextMessageAsync(chatId, $"{About.MessageCommandID} \U0001F379");
+            await client.SendTextMessageAsync(chatId, $"{About.MessageCommandlistSearchByIngredients} \U0001F379");
         }
 
         /// <inheritdoc/>
