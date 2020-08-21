@@ -32,7 +32,7 @@ namespace CoctailBot.Services
         {
             
             return await Constants.searchCocktailByname
-                .SetQueryParams(new { i = CocktailName })
+                .SetQueryParams(new { s = CocktailName })
                 .GetJsonAsync<CocktailsRecipes>();
         }
 
