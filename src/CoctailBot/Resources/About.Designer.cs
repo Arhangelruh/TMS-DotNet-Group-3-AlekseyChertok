@@ -115,7 +115,7 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на /ingredients - Search by ingredients.
+        ///   Ищет локализованную строку, похожую на /ingr - Search by ingredients (input format: /ingr tequila, lemon).
         /// </summary>
         public static string MessageCommandlistSearchByIngredients {
             get {

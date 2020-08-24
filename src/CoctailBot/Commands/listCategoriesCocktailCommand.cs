@@ -5,7 +5,7 @@ using Telegram.Bot.Types.Enums;
 using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
-using CoctailBot.Logics;
+using System.Text;
 
 namespace CoctailBot.Commands
 {
@@ -18,14 +18,16 @@ namespace CoctailBot.Commands
         /// <inheritdoc/>
         public async Task Execute(Message message, ITelegramBotClient client)
         {
+            StringBuilder text = new StringBuilder();
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
             var coctails = workWithApi.listCategoriesCocktail("").GetAwaiter().GetResult();
-            await client.SendTextMessageAsync(chatId, $"\nCocktail categories:");
+            text.Append("\nCocktail categories:");            
             foreach (var coctail in coctails)
             {
-                await client.SendTextMessageAsync(chatId, $"\n{coctail.strCategory}");
+                text.Append($"\n{coctail.strCategory}");               
             }
+            await client.SendTextMessageAsync(chatId, text.ToString());
         }
 
         /// <inheritdoc/>

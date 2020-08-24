@@ -23,9 +23,7 @@ namespace CoctailBot.Commands
             var coctails = workWithApi.RandomCocktail("").GetAwaiter().GetResult();
             foreach (var coctail in coctails)
             {
-                //await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink}");
-
-                GetIngridients getIngridients = new GetIngridients();
+               GetIngridients getIngridients = new GetIngridients();
                 string coctailIngridient = "";
                 var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();                
                 foreach (var ingridient in ingridients)
@@ -34,10 +32,8 @@ namespace CoctailBot.Commands
                 }
 
                 await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink} \nCoctail ingridients: \n{coctailIngridient} \nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
-                //await client.SendTextMessageAsync(chatId, $"\nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
             }
         }
-
         /// <inheritdoc/>
         public bool Contains(Message message) => message.Type != MessageType.Text ? false : message.Text.Contains(Name);
     }

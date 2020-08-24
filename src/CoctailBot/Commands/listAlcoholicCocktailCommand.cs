@@ -6,6 +6,7 @@ using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
 using CoctailBot.Logics;
+using System.Text;
 
 namespace CoctailBot.Commands
 {
@@ -18,15 +19,16 @@ namespace CoctailBot.Commands
         /// <inheritdoc/>
         public async Task Execute(Message message, ITelegramBotClient client)
         {
+            StringBuilder text = new StringBuilder();
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
             var coctails = workWithApi.listAlcoholicCocktail("").GetAwaiter().GetResult();
-            await client.SendTextMessageAsync(chatId, $"\nCocktail types:");
+            text.Append("\nCocktail types:");
             foreach (var coctail in coctails)
             {
-                await client.SendTextMessageAsync(chatId, $"\n{coctail.strAlcoholic}");
+                text.Append($"\n{coctail.strAlcoholic}");
             }
-
+            await client.SendTextMessageAsync(chatId,text.ToString());
         }
 
         /// <inheritdoc/>

@@ -136,7 +136,7 @@
     <value>/listIngredients - view categories cocktails</value>
   </data>
   <data name="MessageCommandlistSearchByIngredients" xml:space="preserve">
-    <value>/ingredients - Search by ingredients</value>
+    <value>/ingr - Search by ingredients (input format: /ingr tequila, lemon)</value>
   </data>
   <data name="MessageCommandRandom" xml:space="preserve">
     <value>/random - Show recipe random coctail</value>

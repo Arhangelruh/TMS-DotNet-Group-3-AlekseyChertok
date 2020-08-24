@@ -5,7 +5,8 @@ using Telegram.Bot.Types.Enums;
 using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
-using CoctailBot.Logics;
+using System.Text;
+using System.Net.Http;
 
 namespace CoctailBot.Commands
 {
@@ -18,16 +19,25 @@ namespace CoctailBot.Commands
         /// <inheritdoc/>
         public async Task Execute(Message message, ITelegramBotClient client)
         {
+            StringBuilder text = new StringBuilder();
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
-            var coctails = workWithApi.listIngredientsCocktail("").GetAwaiter().GetResult();
-            await client.SendTextMessageAsync(chatId, $"\nThe main ingredient in cocktails:");
-            foreach (var coctail in coctails)
+            try
             {
-                await client.SendTextMessageAsync(chatId, $"\n{coctail.strIngredient1}");
+                var coctails = workWithApi.listIngredientsCocktail("").GetAwaiter().GetResult();
+                text.Append($"\nThe main ingredient in cocktails:");
+                foreach (var coctail in coctails)
+                {
+                    text.Append($"\n{coctail.strIngredient1}");
+                }
+                await client.SendTextMessageAsync(chatId, text.ToString());
+            }
+            catch(HttpRequestException)
+            {
+                await client.SendTextMessageAsync(chatId, $"Error request \U0001F631, try again");
             }
         }
-
+    
         /// <inheritdoc/>
         public bool Contains(Message message) => message.Type != MessageType.Text ? false : message.Text.Contains(Name);
     }

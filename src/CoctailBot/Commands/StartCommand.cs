@@ -18,8 +18,7 @@ namespace CoctailBot.Commands
         public async Task Execute(Message message, ITelegramBotClient client)
         {
             var chatId = message.Chat.Id;
-            await client.SendTextMessageAsync(chatId, $"{Start.Message} \U0001F606");
-            await client.SendTextMessageAsync(chatId, $"{Start.MessageFromAbouth} \U0001F389");
+            await client.SendTextMessageAsync(chatId, $"{Start.Message} \U0001F606 \n{Start.MessageFromAbouth} \U0001F389");
         }
 
         /// <inheritdoc/>

@@ -21,15 +21,12 @@ namespace CoctailBot.Commands
         {
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
-            var data = message.Text.Replace("/id","");            
+            var data = message.Text.Replace("/id", "");
             var coctails = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
             try
             {
                 foreach (var coctail in coctails.drinks)
                 {
-                   // await client.SendTextMessageAsync(chatId, $"Cocktail ID: {coctail.idDrink}");
-                    
-                   // await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink}");
                     GetIngridients getIngridients = new GetIngridients();
                     string coctailIngridient = "";
                     var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();
@@ -39,13 +36,11 @@ namespace CoctailBot.Commands
                     }
 
                     await client.SendTextMessageAsync(chatId, $"Cocktail ID: { coctail.idDrink} \nCoctail Name: {coctail.strDrink} \nCoctail ingridients:{coctailIngridient} \nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
-
-                    //await client.SendTextMessageAsync(chatId, $"\nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
                 }
             }
             catch (NullReferenceException)
             {
-                await client.SendTextMessageAsync(chatId, $"Cocktail id {data} not found \U0001F61E" );
+                await client.SendTextMessageAsync(chatId, $"Cocktail id {data} not found \U0001F61E");
             }
         }
 
