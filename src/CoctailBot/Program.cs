@@ -6,14 +6,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using CoctailBot.Services;
 
 namespace CoctailBot
 {
     public class Program
     {
         public static void Main(string[] args)
-        {
+        {            
             CreateHostBuilder(args).Build().Run();
+           
+            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
