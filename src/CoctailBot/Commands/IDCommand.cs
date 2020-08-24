@@ -27,18 +27,20 @@ namespace CoctailBot.Commands
             {
                 foreach (var coctail in coctails.drinks)
                 {
-                    await client.SendTextMessageAsync(chatId, $"Cocktail ID: {coctail.idDrink}");
-                    await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink}");
+                   // await client.SendTextMessageAsync(chatId, $"Cocktail ID: {coctail.idDrink}");
+                    
+                   // await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink}");
                     GetIngridients getIngridients = new GetIngridients();
-                    string coctailIngridient = "Coctail ingridients: ";
+                    string coctailIngridient = "";
                     var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();
                     foreach (var ingridient in ingridients)
                     {
                         coctailIngridient += ingridient + "; ";
                     }
 
-                    await client.SendTextMessageAsync(chatId, $"\n{coctailIngridient}");
-                    await client.SendTextMessageAsync(chatId, $"\nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
+                    await client.SendTextMessageAsync(chatId, $"Cocktail ID: { coctail.idDrink} \nCoctail Name: {coctail.strDrink} \nCoctail ingridients:{coctailIngridient} \nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
+
+                    //await client.SendTextMessageAsync(chatId, $"\nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
                 }
             }
             catch (NullReferenceException)
