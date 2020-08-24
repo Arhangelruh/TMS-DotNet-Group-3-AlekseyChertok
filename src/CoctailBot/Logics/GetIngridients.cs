@@ -57,7 +57,7 @@ namespace CoctailBot.Logics
                     string ingridient = baseingridients[i];
                     string measure = baseMeasure[i];
                     if (ingridient!=null) {
-                        outingridients.Add(ingridient + " " + measure);
+                        outingridients.Add(ingridient.ToLower() + " " + measure);
                     }
                 }             
             });
