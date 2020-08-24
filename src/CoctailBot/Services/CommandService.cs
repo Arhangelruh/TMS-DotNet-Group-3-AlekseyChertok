@@ -23,7 +23,7 @@ namespace CoctailBot.Services
                  new listCategoriesCocktailCommand(),
                  new listIngredientsCocktailCommand(),
                  new IDCommand(),
-                 //new IngredientsCommand(),
+                 new IngredientsCommand(),
                  new NameCommand()
             };
         }
