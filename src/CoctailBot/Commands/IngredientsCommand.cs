@@ -25,11 +25,8 @@ namespace CoctailBot.Commands
             GetCocktailsByIngridients getCocktailsByIngridients = new GetCocktailsByIngridients();
             GetIngridients getIngridients = new GetIngridients();
             var chatId = message.Chat.Id;
-            var data = message.Text.Split(' ');
-            // /ingr one, two
-            // /ingr
-            // one
-            // two
+            var formattext = message.Text.Replace(", ",",");
+            var data = formattext.Split(' ');
 
             try
             {
@@ -47,7 +44,6 @@ namespace CoctailBot.Commands
                     var coctailreciepes = getCocktailsByIngridients.GetCocktailRecipesAsync(cocktails).GetAwaiter().GetResult();
                     int searshresult = 0;
                     int coctailsfound = 0;
-
                     foreach (var coctail in coctailreciepes)
                     {
                         searshresult = 1;
@@ -63,7 +59,6 @@ namespace CoctailBot.Commands
                                 searshresult += 1;
                             }
                         }
-
                         if (searshresult >= inputingridients.Length)
                         {
                             coctailsfound += 1;
@@ -106,5 +101,6 @@ namespace CoctailBot.Commands
                 return false;
             }
         }
+       // public bool Contains(Message message) => message.Type != MessageType.Text ? false : message.Text.Contains(Name);
     }
 }
