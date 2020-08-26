@@ -5,47 +5,40 @@ using Telegram.Bot.Types.Enums;
 using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
-using System.Text;
 using System;
 
 namespace CoctailBot.Commands
 {
     /// <inheritdoc cref="ITelegramCommand"/>
-    public class listCategoriesCocktailCommand : ITelegramCommand
+    public class CategoryCocktailCommand : ITelegramCommand
     {
         /// <inheritdoc/>
-        public string Name { get; } = listCategories.Link;
+        public string Name { get; } = CategoryCocktail.Link;
 
         /// <inheritdoc/>
         public async Task Execute(Message message, ITelegramBotClient client)
         {
-            StringBuilder text = new StringBuilder();
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
-
+            var data = message.Text.Replace("/c", "");
+            var formatTextTwoSpace = data.Replace("__", "/");
             try
             {
-                var coctails = workWithApi.listCategoriesCocktail("").GetAwaiter().GetResult();
-                text.Append("\nCocktail categories:");
-
-                foreach (var coctail in coctails)
+                var coctails = workWithApi.GetCocktailsByCategoryAsync(formatTextTwoSpace.Replace("_or_", " / ")).GetAwaiter().GetResult();
+                foreach (var coctail in coctails.drinks)
                 {
-                    var formatTextSpaceSlashSpais = coctail.strCategory.Replace(" / ", "_or_");
-                    var fomatTextOneSlash = formatTextSpaceSlashSpais.Replace("/", "__");
-                    text.Append($"\n/c{fomatTextOneSlash.Replace(" ", "_")}");
+                    await client.SendTextMessageAsync(chatId, $"\nCocktail ID: /id{coctail.idDrink}\U0001F379 \nCocktail name:{coctail.strDrink} \n{coctail.strDrinkThumb}");
                 }
-                await client.SendTextMessageAsync(chatId, text.ToString());
             }
             catch (NullReferenceException)
             {
-                await client.SendTextMessageAsync(chatId, $"Error \U0001F631 please try again leater \U0001F64F");
+                await client.SendTextMessageAsync(chatId, $"Cocktail not found \U0001F630");
             }
             catch (Exception)
             {
                 await client.SendTextMessageAsync(chatId, $"Error \U0001F631 please try again leater \U0001F64F");
             };
         }
-
         /// <inheritdoc/>
         public bool Contains(Message message)
         {

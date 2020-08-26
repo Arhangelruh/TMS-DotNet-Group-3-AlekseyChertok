@@ -25,7 +25,7 @@ namespace CoctailBot.Commands
             GetCocktailsByIngridients getCocktailsByIngridients = new GetCocktailsByIngridients();
             GetIngridients getIngridients = new GetIngridients();
             var chatId = message.Chat.Id;
-            var formattext = message.Text.Replace(", ",",");
+            var formattext = message.Text.Replace(", ", ",");
             var data = formattext.Split(' ');
 
             try
@@ -101,6 +101,6 @@ namespace CoctailBot.Commands
                 return false;
             }
         }
-       // public bool Contains(Message message) => message.Type != MessageType.Text ? false : message.Text.Contains(Name);
+        // public bool Contains(Message message) => message.Type != MessageType.Text ? false : message.Text.Contains(Name);
     }
 }

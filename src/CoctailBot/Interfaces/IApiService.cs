@@ -52,10 +52,24 @@ namespace CoctailBot.Interfaces
         Task<IEnumerable<CocktailRecipe>> listIngredientsCocktail(string IngredientsCocktail);
 
         /// <summary>
-        /// Recuest coctail by type in alcohol
+        /// Request coctail by type in alcohol
         /// </summary>
         /// <param name="AlcoholicCocktail"></param>
         /// <returns>List coctails by type</returns>
         Task<IEnumerable<CocktailRecipe>> listAlcoholicCocktail(string AlcoholicCocktail);
+
+        /// <summary>
+        /// Request coctail by type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns>List coctails by type</returns>
+        Task<CocktailsIngredients> GetCocktailsByTypeAsync(string type);
+
+        /// <summary>
+        /// Request coctail by category
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns>List coctails by category</returns>
+        Task<CocktailsIngredients> GetCocktailsByCategoryAsync(string category);
     }
 }

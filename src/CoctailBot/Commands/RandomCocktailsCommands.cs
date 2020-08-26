@@ -6,6 +6,7 @@ using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
 using CoctailBot.Logics;
+using System;
 
 namespace CoctailBot.Commands
 {
@@ -13,26 +14,37 @@ namespace CoctailBot.Commands
     public class RandomCocktailsCommands : ITelegramCommand
     {
         /// <inheritdoc/>
-        public string Name { get; } = Random.Link;
+        public string Name { get; } = RandomCocktail.Link;
 
         /// <inheritdoc/>
         public async Task Execute(Message message, ITelegramBotClient client)
         {
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
-            var coctails = workWithApi.RandomCocktail("").GetAwaiter().GetResult();
-            foreach (var coctail in coctails)
+            try
             {
-               GetIngridients getIngridients = new GetIngridients();
-                string coctailIngridient = "";
-                var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();                
-                foreach (var ingridient in ingridients)
+                var coctails = workWithApi.RandomCocktail("").GetAwaiter().GetResult();
+                foreach (var coctail in coctails)
                 {
-                    coctailIngridient += ingridient + "; ";
-                }
+                    GetIngridients getIngridients = new GetIngridients();
+                    string coctailIngridient = "";
+                    var ingridients = getIngridients.GetListIngridientsAsync(coctail).GetAwaiter().GetResult();
+                    foreach (var ingridient in ingridients)
+                    {
+                        coctailIngridient += ingridient + "; ";
+                    }
 
-                await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink} \nCoctail ingridients: \n{coctailIngridient} \nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
+                    await client.SendTextMessageAsync(chatId, $"Coctail Name: {coctail.strDrink} \nCoctail ingridients: \n{coctailIngridient} \nInstructions: \n{coctail.strInstructions} \n{coctail.strDrinkThumb}");
+                }
             }
+            catch (NullReferenceException)
+            {
+                await client.SendTextMessageAsync(chatId, $"Cocktail not found \U0001F630");
+            }
+            catch (Exception)
+            {
+                await client.SendTextMessageAsync(chatId, $"Error \U0001F631 please try again leater \U0001F64F");
+            };
         }
         /// <inheritdoc/>
         public bool Contains(Message message)

@@ -13,9 +13,9 @@ namespace CoctailBot.Helpers
         public const string searchCocktailByname = "https://www.thecocktaildb.com/api/json/v1/1/search.php";
 
         /// <summary>
-        /// Поиск по ингдиенту.
+        /// Multi request: type, ingridient or categories.
         /// </summary>
-        public const string searchByIngredient = "https://www.thecocktaildb.com/api/json/v1/1/filter.php";
+        public const string searchByMulti = "https://www.thecocktaildb.com/api/json/v1/1/filter.php";
 
         /// <summary>
         /// Поиск по ID.

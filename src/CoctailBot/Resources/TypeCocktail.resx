@@ -118,27 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Link" xml:space="preserve">
-    <value>/about</value>
-  </data>
-  <data name="Message" xml:space="preserve">
-    <value>Hi i helps you to find a cocktail recipe. This my commands:  </value>
-  </data>
-  <data name="MessageCommandlistAlcoholic" xml:space="preserve">
-    <value>/listAlcoholic - view categories cocktails!</value>
-  </data>
-  <data name="MessageCommandlistCategories" xml:space="preserve">
-    <value>/listCategories - view categories cocktails</value>
-  </data>
-  <data name="MessageCommandlistIngredients" xml:space="preserve">
-    <value>/listIngredients - view categories cocktails</value>
-  </data>
-  <data name="MessageCommandlistSearchByIngredients" xml:space="preserve">
-    <value>/ingr - Search by ingredients (input format: /ingr tequila,lemon)</value>
-  </data>
-  <data name="MessageCommandRandom" xml:space="preserve">
-    <value>/random - Show recipe random coctail</value>
-  </data>
-  <data name="MessageCommandSearchCocktalByName" xml:space="preserve">
-    <value>/name - Search cocktal by name</value>
+    <value>/t</value>
   </data>
 </root>

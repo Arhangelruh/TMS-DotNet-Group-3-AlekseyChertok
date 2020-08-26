@@ -5,8 +5,8 @@ using Telegram.Bot.Types.Enums;
 using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
-using CoctailBot.Logics;
 using System.Text;
+using System;
 
 namespace CoctailBot.Commands
 {
@@ -22,13 +22,24 @@ namespace CoctailBot.Commands
             StringBuilder text = new StringBuilder();
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
-            var coctails = workWithApi.listAlcoholicCocktail("").GetAwaiter().GetResult();
             text.Append("\nCocktail types:");
-            foreach (var coctail in coctails)
+            try
             {
-                text.Append($"\n{coctail.strAlcoholic}");
+                var coctails = workWithApi.listAlcoholicCocktail("").GetAwaiter().GetResult();
+                foreach (var coctail in coctails)
+                {
+                    text.Append($"\n /t{coctail.strAlcoholic.Replace(" ", "_")}");
+                }
+                await client.SendTextMessageAsync(chatId, text.ToString());
             }
-            await client.SendTextMessageAsync(chatId,text.ToString());
+            catch (NullReferenceException)
+            {
+                await client.SendTextMessageAsync(chatId, $"Cocktail not found \U0001F630");
+            }
+            catch (Exception)
+            {
+                await client.SendTextMessageAsync(chatId, $"Error \U0001F631 please try again leater \U0001F64F");
+            };
         }
 
         /// <inheritdoc/>

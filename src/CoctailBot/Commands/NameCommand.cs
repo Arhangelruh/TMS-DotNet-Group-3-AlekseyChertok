@@ -21,9 +21,10 @@ namespace CoctailBot.Commands
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
             var data = message.Text.Replace("/name", "");
-            var coctails = workWithApi.GetCocktailsByRecipeAsync(data).GetAwaiter().GetResult();
+
             try
             {
+                var coctails = workWithApi.GetCocktailsByRecipeAsync(data).GetAwaiter().GetResult();
                 foreach (var coctail in coctails.drinks)
                 {
                     await client.SendTextMessageAsync(chatId, $"\nCocktail ID: /id{coctail.idDrink}\U0001F379 \nCocktail name:{coctail.strDrink} \n{coctail.strDrinkThumb}");
@@ -33,6 +34,10 @@ namespace CoctailBot.Commands
             {
                 await client.SendTextMessageAsync(chatId, $"Cocktail name {data} not found \U0001F631");
             }
+            catch (Exception)
+            {
+                await client.SendTextMessageAsync(chatId, $"Error \U0001F631 please try again leater \U0001F64F");
+            };
         }
         /// <inheritdoc/>
         public bool Contains(Message message)
