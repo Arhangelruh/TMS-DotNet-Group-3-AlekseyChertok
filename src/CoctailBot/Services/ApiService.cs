@@ -11,23 +11,14 @@ namespace CoctailBot.Services
     /// <inheritdoc cref="IApiService"/>
     public class ApiService : IApiService
     {
-        /// <summary>
-        /// Поиск по ингредиенту.
-        /// </summary>
-        /// <param name="IngredientsName">Наименование ингредиента.</param>
-        /// <returns></returns>
+        
         public async Task <CocktailsIngredients> GetCocktailsByIngredientAsync(string ingredientsName)
         {
-            return await Constants.searchByIngredient
+            return await Constants.searchByMulti
                 .SetQueryParams(new { i = ingredientsName })
                 .GetJsonAsync<CocktailsIngredients>();
         }
 
-        /// <summary>
-        /// Название коктейля.
-        /// </summary>
-        /// <param name="CocktailName">Название коктейля.</param>
-        /// <returns></returns>
         public async Task<CocktailsRecipes> GetCocktailsByRecipeAsync(string CocktailName)
         {
             
@@ -36,11 +27,6 @@ namespace CoctailBot.Services
                 .GetJsonAsync<CocktailsRecipes>();
         }
 
-        /// <summary>
-        /// ID коктейля.
-        /// </summary>
-        /// <param name="recipeID">ID коктейля.</param>
-        /// <returns></returns>
         public async Task <CocktailsRecipes> GetCocktailsByID(string recipeID)
         {
             return await Constants.lookupFullCocktaildetailsById
@@ -48,10 +34,6 @@ namespace CoctailBot.Services
                 .GetJsonAsync<CocktailsRecipes>();          
         }
 
-        /// <summary>
-        /// Случайный коктейль.
-        /// </summary>
-        /// <returns></returns>
         public async Task<IEnumerable<CocktailRecipe>> RandomCocktail(string RandomCocktail)
         {
             var response = await Constants.lookupaRandomCocktail
@@ -59,11 +41,7 @@ namespace CoctailBot.Services
             var coctail = response.drinks;
             return coctail;
         }
-        /// <summary>
-        /// Категории коктейлей.
-        /// </summary>
-        /// <param name="CategoriesCocktail">Категории коктейлей.</param>
-        /// <returns></returns>
+
         public async Task<IEnumerable<CocktailRecipe>> listCategoriesCocktail(string CategoriesCocktail)
         {
             var response = await Constants.listCategories
@@ -72,11 +50,7 @@ namespace CoctailBot.Services
             var coctail = response.drinks;
             return coctail;
         }
-        /// <summary>
-        /// Ингредиенты коктейлей.
-        /// </summary>
-        /// <param name="IngredientsCocktail">Ингредиенты коктейлей.</param>
-        /// <returns></returns>
+
         public async Task<IEnumerable<CocktailRecipe>> listIngredientsCocktail(string IngredientsCocktail)
         {
             var response = await Constants.listCategories
@@ -85,11 +59,7 @@ namespace CoctailBot.Services
             var coctail = response.drinks;
             return coctail;
         }
-        /// <summary>
-        /// Вид коктейля.
-        /// </summary>
-        /// <param name="AlcoholicCocktail">Вид коктейля.</param>
-        /// <returns></returns>
+
         public async Task<IEnumerable<CocktailRecipe>> listAlcoholicCocktail(string AlcoholicCocktail)
         {
             var response = await Constants.listCategories
@@ -98,7 +68,20 @@ namespace CoctailBot.Services
             var coctail = response.drinks;
             return coctail;
         }
-        
+
+        public async Task<CocktailsIngredients> GetCocktailsByTypeAsync(string type)
+        {
+            return await Constants.searchByMulti
+                .SetQueryParams(new { a = type })
+                .GetJsonAsync<CocktailsIngredients>();
+        }
+
+        public async Task<CocktailsIngredients> GetCocktailsByCategoryAsync(string category)
+        {
+            return await Constants.searchByMulti
+                .SetQueryParams(new { i = category })
+                .GetJsonAsync<CocktailsIngredients>();
+        }
     }
 }
 
