@@ -79,7 +79,7 @@ namespace CoctailBot.Services
         public async Task<CocktailsIngredients> GetCocktailsByCategoryAsync(string category)
         {
             return await Constants.searchByMulti
-                .SetQueryParams(new { i = category })
+                .SetQueryParams(new { c = category })
                 .GetJsonAsync<CocktailsIngredients>();
         }
     }

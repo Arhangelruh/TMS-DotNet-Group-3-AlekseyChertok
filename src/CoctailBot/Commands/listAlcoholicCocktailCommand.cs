@@ -5,7 +5,6 @@ using Telegram.Bot.Types.Enums;
 using CoctailBot.Interfaces;
 using CoctailBot.Resources;
 using CoctailBot.Services;
-using CoctailBot.Logics;
 using System.Text;
 
 namespace CoctailBot.Commands

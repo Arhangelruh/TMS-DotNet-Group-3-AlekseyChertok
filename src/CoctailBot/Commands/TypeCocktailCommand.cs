@@ -9,11 +9,12 @@ using System;
 
 namespace CoctailBot.Commands
 {
+    /// <inheritdoc cref="ITelegramCommand"/>
     public class TypeCocktailCommand : ITelegramCommand
     {
 
         /// <inheritdoc/>
-        public string Name { get; } = NameCocktail.Link;
+        public string Name { get; } = TypeCocktail.Link;
 
         /// <inheritdoc/>
         public async Task Execute(Message message, ITelegramBotClient client)
