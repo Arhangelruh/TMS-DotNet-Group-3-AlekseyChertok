@@ -21,10 +21,10 @@ namespace CoctailBot.Commands
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
             var data = message.Text.Replace("/c", "");
-            var formatTextTwoSpace = data.Replace("__","/");
-            var coctails = workWithApi.GetCocktailsByCategoryAsync(formatTextTwoSpace.Replace("_or_", " / ")).GetAwaiter().GetResult();
+            var formatTextTwoSpace = data.Replace("__", "/");
             try
             {
+                var coctails = workWithApi.GetCocktailsByCategoryAsync(formatTextTwoSpace.Replace("_or_", " / ")).GetAwaiter().GetResult();
                 foreach (var coctail in coctails.drinks)
                 {
                     await client.SendTextMessageAsync(chatId, $"\nCocktail ID: /id{coctail.idDrink}\U0001F379 \nCocktail name:{coctail.strDrink} \n{coctail.strDrinkThumb}");

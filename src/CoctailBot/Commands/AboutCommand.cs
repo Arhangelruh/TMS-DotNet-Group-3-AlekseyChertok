@@ -17,7 +17,7 @@ namespace CoctailBot.Commands
         public async Task Execute(Message message, ITelegramBotClient client)
         {
             var chatId = message.Chat.Id;
-            await client.SendTextMessageAsync(chatId, $"\U0001F389 {About.Message} \U0001F449 \n{About.MessageCommandRandom} \U0001F379 \n{About.MessageCommandlistCategories} \U0001F379 \n{About.MessageCommandlistIngredients} \U0001F379 \n{About.MessageCommandlistAlcoholic} \U0001F379 \n{About.MessageCommandID} \U0001F379 \n{About.MessageCommandlistSearchByIngredients} \U0001F379 \n{About.MessageCommandSearchCocktalByName} \U0001F379");
+            await client.SendTextMessageAsync(chatId, $"\U0001F389 {About.Message} \U0001F449 \n{About.MessageCommandRandom} \U0001F379 \n{About.MessageCommandlistCategories} \U0001F379 \n{About.MessageCommandlistIngredients} \U0001F379 \n{About.MessageCommandlistAlcoholic} \U0001F379 \n{About.MessageCommandlistSearchByIngredients} \U0001F379 \n{About.MessageCommandSearchCocktalByName} \U0001F379");
         }
 
         /// <inheritdoc/>

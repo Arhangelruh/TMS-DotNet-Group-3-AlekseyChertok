@@ -22,9 +22,9 @@ namespace CoctailBot.Commands
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
             var data = message.Text.Replace("/id", "");
-            var coctails = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
             try
             {
+                var coctails = workWithApi.GetCocktailsByID(data).GetAwaiter().GetResult();
                 foreach (var coctail in coctails.drinks)
                 {
                     GetIngridients getIngridients = new GetIngridients();
@@ -41,6 +41,12 @@ namespace CoctailBot.Commands
             catch (NullReferenceException)
             {
                 await client.SendTextMessageAsync(chatId, $"Cocktail id {data} not found \U0001F61E");
+            }
+            catch (Exception)
+            {
+                {
+                    await client.SendTextMessageAsync(chatId, $"Error \U0001F631 please try again leater \U0001F64F");
+                };
             }
         }
 

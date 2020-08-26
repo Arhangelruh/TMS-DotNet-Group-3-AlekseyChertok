@@ -79,15 +79,6 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на /id - search cocktail by ID.
-        /// </summary>
-        public static string MessageCommandID {
-            get {
-                return ResourceManager.GetString("MessageCommandID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на /listAlcoholic - view categories cocktails!.
         /// </summary>
         public static string MessageCommandlistAlcoholic {

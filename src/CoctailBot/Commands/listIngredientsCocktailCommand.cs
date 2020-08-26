@@ -32,7 +32,7 @@ namespace CoctailBot.Commands
                 }
                 await client.SendTextMessageAsync(chatId, text.ToString());
             }
-            catch(HttpRequestException)
+            catch (HttpRequestException)
             {
                 await client.SendTextMessageAsync(chatId, $"Error request \U0001F631, try again");
             }

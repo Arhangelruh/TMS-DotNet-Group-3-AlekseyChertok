@@ -22,14 +22,16 @@ namespace CoctailBot.Commands
             StringBuilder text = new StringBuilder();
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
-            var coctails = workWithApi.listCategoriesCocktail("").GetAwaiter().GetResult();
-            text.Append("\nCocktail categories:");
+
             try
             {
+                var coctails = workWithApi.listCategoriesCocktail("").GetAwaiter().GetResult();
+                text.Append("\nCocktail categories:");
+
                 foreach (var coctail in coctails)
                 {
-                    var formatTextSpaceSlashSpais = coctail.strCategory.Replace(" / ","_or_");
-                    var fomatTextOneSlash = formatTextSpaceSlashSpais.Replace("/","__");
+                    var formatTextSpaceSlashSpais = coctail.strCategory.Replace(" / ", "_or_");
+                    var fomatTextOneSlash = formatTextSpaceSlashSpais.Replace("/", "__");
                     text.Append($"\n/c{fomatTextOneSlash.Replace(" ", "_")}");
                 }
                 await client.SendTextMessageAsync(chatId, text.ToString());

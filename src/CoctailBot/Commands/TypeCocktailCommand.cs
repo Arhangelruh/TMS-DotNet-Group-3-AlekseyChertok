@@ -22,9 +22,10 @@ namespace CoctailBot.Commands
             IApiService workWithApi = new ApiService();
             var chatId = message.Chat.Id;
             var data = message.Text.Replace("/t", "");
-            var coctails = workWithApi.GetCocktailsByTypeAsync(data).GetAwaiter().GetResult();
+
             try
             {
+                var coctails = workWithApi.GetCocktailsByTypeAsync(data).GetAwaiter().GetResult();
                 foreach (var coctail in coctails.drinks)
                 {
                     await client.SendTextMessageAsync(chatId, $"\nCocktail ID: /id{coctail.idDrink}\U0001F379 \nCocktail name:{coctail.strDrink} \n{coctail.strDrinkThumb}");
@@ -34,7 +35,8 @@ namespace CoctailBot.Commands
             {
                 await client.SendTextMessageAsync(chatId, $"Cocktail not found \U0001F630");
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 await client.SendTextMessageAsync(chatId, $"Error \U0001F631 please try again leater \U0001F64F");
             };
         }

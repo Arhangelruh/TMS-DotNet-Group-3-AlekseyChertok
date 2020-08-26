@@ -1,6 +1,5 @@
 ﻿using CoctailBot.Interfaces;
 using CoctailBot.Resources;
-using System;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -29,7 +28,8 @@ namespace CoctailBot.Commands
             {
                 return message.Type == MessageType.Text && message.Text.Contains(Name);
             }
-            else {
+            else
+            {
                 return false;
             }
         }
