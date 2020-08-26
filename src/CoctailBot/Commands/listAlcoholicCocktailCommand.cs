@@ -25,7 +25,7 @@ namespace CoctailBot.Commands
             text.Append("\nCocktail types:");
             foreach (var coctail in coctails)
             {
-                text.Append($"\n /t{coctail.strAlcoholic}");
+                text.Append($"\n /t{coctail.strAlcoholic.Replace(" ","_")}");
             }
             await client.SendTextMessageAsync(chatId,text.ToString());
         }
