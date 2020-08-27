@@ -61,7 +61,7 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на /listCategories.
+        ///   Ищет локализованную строку, похожую на /listcategories.
         /// </summary>
         public static string Link {
             get {

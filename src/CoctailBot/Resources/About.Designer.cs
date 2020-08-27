@@ -79,7 +79,7 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на /listAlcoholic - view categories cocktails!.
+        ///   Ищет локализованную строку, похожую на /listalcoholic - view categories cocktails!.
         /// </summary>
         public static string MessageCommandlistAlcoholic {
             get {
@@ -88,7 +88,7 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на /listCategories - view categories cocktails.
+        ///   Ищет локализованную строку, похожую на /listcategories - view categories cocktails.
         /// </summary>
         public static string MessageCommandlistCategories {
             get {
@@ -97,7 +97,7 @@ namespace CoctailBot.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на /listIngredients - view categories cocktails.
+        ///   Ищет локализованную строку, похожую на /listingredients - view categories cocktails.
         /// </summary>
         public static string MessageCommandlistIngredients {
             get {

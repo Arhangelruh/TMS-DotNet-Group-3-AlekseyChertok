@@ -124,13 +124,13 @@
     <value>Hi i helps you to find a cocktail recipe. This my commands:  </value>
   </data>
   <data name="MessageCommandlistAlcoholic" xml:space="preserve">
-    <value>/listAlcoholic - view categories cocktails!</value>
+    <value>/listalcoholic - view categories cocktails!</value>
   </data>
   <data name="MessageCommandlistCategories" xml:space="preserve">
-    <value>/listCategories - view categories cocktails</value>
+    <value>/listcategories - view categories cocktails</value>
   </data>
   <data name="MessageCommandlistIngredients" xml:space="preserve">
-    <value>/listIngredients - view categories cocktails</value>
+    <value>/listingredients - view categories cocktails</value>
   </data>
   <data name="MessageCommandlistSearchByIngredients" xml:space="preserve">
     <value>/ingr - Search by ingredients (input format: /ingr tequila,lemon)</value>
