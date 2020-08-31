@@ -21,6 +21,16 @@ namespace CoctailBot.Commands
             await client.SendTextMessageAsync(chatId, "Sorry i dont know this command(( Open /about and you see active commands");
         }
         /// <inheritdoc/>
-        public bool Contains(Message message) => message.Type != MessageType.Text ? false : message.Text.Contains(Name);
+        public bool Contains(Message message)
+        {
+            if (message != null)
+            {
+                return message.Type == MessageType.Text && message.Text.Contains(Name);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
