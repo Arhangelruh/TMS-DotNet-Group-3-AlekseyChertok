@@ -26,7 +26,8 @@ namespace CoctailBot.Services
                  new IngredientsCommand(),
                  new NameCommand(),
                  new CategoryCocktailCommand(),
-                 new TypeCocktailCommand()
+                 new TypeCocktailCommand(),
+                 new UnknownCommand()
             };
         }
 
